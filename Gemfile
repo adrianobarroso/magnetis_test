@@ -12,12 +12,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
+gem 'bootstrap-sass', '~> 3.3'
+gem 'jquery-rails'
 gem 'devise'
+gem 'simple_form'
 gem 'pry'
 
 group :development, :test do
+  gem 'capybara'
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.7'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

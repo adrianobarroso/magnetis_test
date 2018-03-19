@@ -1,0 +1,44 @@
+<h1>Bank Account</h1>
+<div class="transfer-money">
+  <%= form_for BankAccount.new, url: transfer_money_bank_accounts_path, method: :post do |f| %>
+    <%= f.label :savings %>:
+    <%= f.text_field :savings %><br />
+
+    <%= f.label :bank_account %>:
+    <%= select("bank_account", "id", @bank_accounts.collect {|bank_account| [bank_account.user.email, bank_account.id]}, { include_blank: true } ) %>
+    <br>
+    <%= f.submit %>
+  <% end %>
+</div>
+<div class="content">
+  <div class="user-info">
+    <h4>Your Account:</h4>
+    <p>Your email: <%= current_user.email %></p>
+    <p>Your BankAccount ID: <%= current_user.bank_account.id %></p>
+    <p>My savings: R$
+      <span class='savings' data-savings="<%= current_user.bank_account.savings %>">
+        ######
+      </span>
+    </p>
+    <a href="#" id='show-savings'>Show my savings</a>
+  </div>
+  <div class="list-accounts">
+    <h4>Other Clients Account:</h4>
+    <table class="table table-striped">
+      <thead>
+        <th>Bank Account ID</th>
+        <th>Owner</th>
+        <th>Savings</th>
+      </thead>
+      <tbody>
+        <% @bank_accounts.each do |ba| %>
+          <tr>
+            <td><%= ba.id %></td>
+            <td><%= ba.user.email %></td>
+            <td>###### R$</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

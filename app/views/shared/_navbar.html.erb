@@ -1,0 +1,14 @@
+<div class="navbar">
+  <%= link_to root_path do %>
+    <div class='app-logo'>
+      <img src="https://magnetis-herokuapp-com.global.ssl.fastly.net/assets/homepage/magnetis-da06ed6dfa6c25c700cef623750cca750b402575e9d28b0df12f3ce86831c372.svg" alt="">
+      <span>TestApp</span>
+    </div>
+  <% end %>
+  <% if user_signed_in?  %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+    <%= link_to 'Show Balance', currency_balance_bank_accounts_path %>
+  <% else %>
+    <%= link_to 'Log in', new_user_session_path %>
+  <% end %>
+</div>

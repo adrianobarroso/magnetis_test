@@ -4,13 +4,7 @@ class BankAccount < ApplicationRecord
   validates :user, uniqueness: true
   validates :savings, presence: true
 
-  validate :savings_positive, on: :create
-
-  def savings_positive
-    if savings < 0
-      errors.add(:negative_saving, "can't create BankAccount with negative savings")
-    end
-  end
+  validates :savings, numericality: { greater_than: 0 }
 
   def transfer_money(bank_account, amount)
     if savings >= amount
