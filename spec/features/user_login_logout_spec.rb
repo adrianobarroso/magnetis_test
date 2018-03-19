@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the signin process", :type => :feature do
+describe "User the signin process", :type => :feature do
   before :each do
     FactoryBot.create(:user)
   end
