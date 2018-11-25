@@ -17,6 +17,9 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'simple_form'
 gem 'pry'
+gem "rack", ">= 2.0.6"
+gem "loofah", ">= 2.2.3"
+gem "rails-html-sanitizer", ">= 1.0.4"
 
 group :development, :test do
   gem 'capybara'
